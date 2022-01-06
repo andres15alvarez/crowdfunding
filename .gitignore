@@ -1,0 +1,5 @@
+.env
+commands.txt
+build/
+node_modules/
+test/
