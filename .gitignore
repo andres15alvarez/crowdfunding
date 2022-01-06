@@ -3,3 +3,6 @@ commands.txt
 build/
 node_modules/
 test/
+*venv/
+*__pycache__/
+*settings.py
