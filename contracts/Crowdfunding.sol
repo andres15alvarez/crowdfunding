@@ -4,7 +4,8 @@ pragma solidity >=0.7.0 <0.9.0;
 
 /// @title Crowdfunding.
 /// @author andres15alvarez
-/// @notice With this contract you cand fund a project or create one.
+/// @notice With this contract you cand fund a project or create one. 
+/// After a project has finihsed, a percentage going to the addres that deployed the contract.
 contract Crowdfunding{
     mapping (uint=>Project) projects;
     mapping (uint=>Transaction[]) projectTransactions;
@@ -38,6 +39,11 @@ contract Crowdfunding{
         string name;
     }
 
+    /// @notice Alert when a project is created.
+    /// @dev Event when a project is created and you need the id of the project to interact with it.
+    /// @param id Project Id
+    event ProjectCreation(uint id);
+
     /// @notice Alert of funding in a project.
     /// @dev Event when a contribution to a project was made.
     /// @param contributor Address of the contributor
@@ -46,7 +52,7 @@ contract Crowdfunding{
 
     /// @notice Alert when the project collect the goal.
     /// @dev Event when the project has funded all.
-    /// @param amount Totla amount funded in the project.
+    /// @param amount Total amount funded in the project.
     event FundingFinished(uint amount);
 
     constructor (){
@@ -103,6 +109,7 @@ contract Crowdfunding{
             isOpen: true
         });
         projects[projectId] = newProject;
+        emit ProjectCreation(projectId);
         return projectId;
     }
 
