@@ -56,7 +56,29 @@ module.exports = {
       confirmations: 2,    // # of confs to wait between deployments. (default: 0)
       timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
       skipDryRun: true
-    }
+    },
+    polygon: {
+      provider: () => new HDWalletProvider(env.MNEMONIC, `https://rpc-mumbai.maticvigil.com`),
+      network_id: 80001,
+      confirmations: 2,
+      timeoutBlocks: 200,
+      skipDryRun: true
+    },
+    binance: {
+      provider: () => new HDWalletProvider(env.MNEMONIC, `wss://speedy-nodes-nyc.moralis.io/f0a7e7ee45e30fe79428a471/bsc/testnet/ws`),
+      network_id: 97,
+      confirmations: 10,
+      timeoutBlocks: 200,
+      skipDryRun: true,
+      networkCheckTimeout: 9999999
+    },
+    solana: {
+      provider: () => new HDWalletProvider(env.MNEMONIC, `https://proxy.devnet.neonlabs.org/solana`),
+      network_id: 245022926,
+      gas: 3000000,
+      gasPrice: 1000000000,
+      networkCheckTimeout: 999999
+    },
     // Another network with more advanced options...
     // advanced: {
     // port: 8777,             // Custom port
