@@ -18,5 +18,11 @@ https://mumbai.polygonscan.com/address/0xdd3d422aff7ee7dcc78da41bb4d9831bb659933
 ### Testnet bscscan: 
 https://testnet.bscscan.com/address/0xd8Fc03AfE87109ef5C13674183bF0E7E1fa53d88
 
+### Celo Alfajores contract address:
+0xDD3d422AFf7eE7Dcc78da41bB4D9831Bb6599333
+
+### Alfajores blockscout
+https://alfajores-blockscout.celo-testnet.org/address/0xDD3d422AFf7eE7Dcc78da41bB4D9831Bb6599333/transactions
+
 # Web3.py API
 ### There are an api folder wich have methods to interact with the smar contract using python.
