@@ -21,6 +21,13 @@
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 const { env } = require('process');
 require('dotenv').config()
+// For celo blockchain
+const ContractKit = require('@celo/contractkit')
+const Web3 = require('web3')
+const web3 = new Web3('https://alfajores-forno.celo-testnet.org')
+const kit = ContractKit.newKitFromWeb3(web3)
+kit.connection.addAccount(env.PRIVATE_KEY)
+
 //
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
@@ -71,6 +78,13 @@ module.exports = {
       timeoutBlocks: 200,
       skipDryRun: true,
       networkCheckTimeout: 9999999
+    },
+    celo: {
+      provider: kit.connection.web3.currentProvider,
+      network_id: 44787,
+      gas: 4000000,
+      timeoutBlocks: 200,
+      skipDryRun: true
     },
     solana: {
       provider: () => new HDWalletProvider(env.MNEMONIC, `https://proxy.devnet.neonlabs.org/solana`),
